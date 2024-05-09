@@ -2,6 +2,7 @@ import { MainLayout } from '@/shared/components';
 import { withLoading } from '@/shared/hocs/WithLoading';
 import { lazy } from 'react';
 import {
+  Navigate,
   Route,
   RouterProvider,
   createBrowserRouter,
@@ -17,7 +18,7 @@ const AddAssets = withLoading(AddAssetsPage);
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
-      <Route index element={<main>Home page</main>} />
+      <Route index element={<Navigate to="/assets" />} />
       <Route path="/assets" element={<Assets />} />
       <Route path="/add-assets" element={<AddAssets />} />
     </Route>
