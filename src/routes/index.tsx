@@ -9,18 +9,21 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 
-const AssetsPage = lazy(() => import('pages/assets'));
-const AddAssetsPage = lazy(() => import('pages/add-assets'));
+const AssetsOverviewPage = lazy(() => import('pages/assets/overview'));
+const AddAssetsPage = lazy(() => import('@/pages/assets/add-assets'));
+const AssetsPage = lazy(() => import('@/pages/assets/list'));
 
-const Assets = withLoading(AssetsPage);
+const AssetsOverview = withLoading(AssetsOverviewPage);
 const AddAssets = withLoading(AddAssetsPage);
+const Assets = withLoading(AssetsPage);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
-      <Route index element={<Navigate to="/assets" />} />
-      <Route path="/assets" element={<Assets />} />
-      <Route path="/add-assets" element={<AddAssets />} />
+      <Route index element={<Navigate to="/assets/overview" />} />
+      <Route path="/assets/overview" element={<AssetsOverview />} />
+      <Route path="/assets/add-assets" element={<AddAssets />} />
+      <Route path="/assets/list" element={<Assets />} />
     </Route>
   )
 );

@@ -33,7 +33,7 @@ const AddAssets = () => {
             cursor="pointer"
             as="label"
             display="flex"
-            border="1px"
+            borderWidth={1}
             borderColor="#6D31ED"
             borderStyle="dashed"
             borderRadius="8px"
@@ -93,25 +93,20 @@ const AddAssets = () => {
             </Box>
             <Image p={3} py={0} src={cancelSrc} />
           </Flex>
-          <Flex
-            p={1}
-            borderWidth="1px"
-            borderColor="#BDC1CA"
-            borderRadius="6px"
-          >
+          <Flex p={1} borderWidth={1} borderColor="#BDC1CA" borderRadius={6}>
             <Box flexGrow="1">
-              <Text fontSize="14px">Product Image Variant 1</Text>
+              <Text fontSize={14}>Product Image Variant 1</Text>
               <Flex alignItems="center" gap={1}>
                 <Image src={pdfSrc} />
                 <Flex flexGrow="1" direction="column">
                   <Flex width="100%" justifyContent="space-between">
-                    <Text fontSize="12px">Image-00.png</Text>
-                    <Text color="#9095A1" fontSize="12px">
+                    <Text fontSize={12}>Image-00.png</Text>
+                    <Text color="#9095A1" fontSize={12}>
                       56%
                     </Text>
                   </Flex>
                   <Progress
-                    borderRadius="3px"
+                    borderRadius={3}
                     colorScheme="blue"
                     size="sm"
                     value={56}

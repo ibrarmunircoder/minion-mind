@@ -1,6 +1,6 @@
 import {
-  Box,
   Divider,
+  Flex,
   Image,
   List,
   ListIcon,
@@ -14,6 +14,7 @@ import WorkflowIcon from 'assets/sidebar/workflow.svg?react';
 import AnalyticsIcon from 'assets/sidebar/analytics.svg?react';
 import AseetsIcon from 'assets/sidebar/assets.svg?react';
 import { Link } from 'react-router-dom';
+import { StickySidebar } from './StickySidebar';
 
 const navItems = [
   { id: 'home', label: 'Home', link: '/#', icon: <HomeIcon /> },
@@ -26,31 +27,22 @@ const navItems = [
   { id: 'listing', label: 'Listing', link: '/#', icon: <ListingIcon /> },
   { id: 'workflows', label: 'Workflows', link: '/#', icon: <WorkflowIcon /> },
   { id: 'analytics', label: 'Analytics', link: '/#', icon: <AnalyticsIcon /> },
-  { id: 'assets', label: 'Assets', link: '/assets', icon: <AseetsIcon /> },
+  {
+    id: 'assets',
+    label: 'Assets',
+    link: '/assets/list',
+    icon: <AseetsIcon />,
+  },
 ];
 
 export const Sidebar = () => {
   return (
-    <Box
-      position="sticky"
-      top="0px"
-      as="aside"
-      bgColor="#232C3C"
-      width={206}
-      p={1}
-      display="flex"
-      flexDirection="column"
-      overflowX="auto"
-    >
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        p={4}
-        pb={17}
-      >
-        <Image src={logoSrc} width={143} height={47} />
-      </Box>
+    <StickySidebar>
+      <Flex justifyContent="center" alignItems="center" p={4} pb={17}>
+        <Link to="/">
+          <Image src={logoSrc} width={143} height={47} />
+        </Link>
+      </Flex>
       <List display="flex" flexDirection="column" gap="7px" color="white">
         {navItems.slice(0, 2).map(({ icon, id, label, link }) => (
           <ListItem
@@ -58,7 +50,7 @@ export const Sidebar = () => {
             to={link}
             key={id}
             _hover={{
-              bgColor: '#DEE1E64D',
+              bgColor: 'clay.50',
             }}
             p={2}
             pl={6}
@@ -95,6 +87,6 @@ export const Sidebar = () => {
           </ListItem>
         ))}
       </List>
-    </Box>
+    </StickySidebar>
   );
 };
