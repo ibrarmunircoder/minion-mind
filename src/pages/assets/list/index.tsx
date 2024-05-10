@@ -48,11 +48,7 @@ const Assets = () => {
             >
               <SearchIcon />
             </InputLeftElement>
-            <Input
-              borderRadius={6}
-              bgColor="#F3F4F6"
-              placeholder="Enter amount"
-            />
+            <Input borderRadius={6} bgColor="#F3F4F6" placeholder="Search..." />
             <InputRightElement>
               <PreferencesIcon />
             </InputRightElement>
